@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textw2"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Sign up for your community’s warning system. The Emergency Alert System (EAS) and National Oceanic and Atmospheric Administration (NOAA) Weather Radio also provide emergency alerts.
+Know your community’s evacuation plans and find several ways to leave the area. Drive the evacuation routes and find shelter locations. Have a plan for pets and livestock.
+Gather emergency supplies, including N95 respirator masks that filter out particles in the air you breathe. Keep in mind each person’s specific needs, including and updated asthma action plan and medication. Don’t forget the needs of pets.
+Designate a room that can be closed off from outside air. Close all doors and windows. Set up a portable air cleaner to keep indoor pollution levels low when smoky conditions exist.
+Keep important documents in a fireproof, safe place. Create password-protected digital copies.
+Use fire-resistant materials to build, renovate, or make repairs.
+Find an outdoor water source with a hose that can reach any area of your property.
+Create a fire-resistant zone that is free of leaves, debris, or flammable materials for at least 30 feet from your home.
+Review insurance coverage to make sure it is enough to replace your property.
+Pay attention to air quality alerts."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textVieww2"
+            android:visibility="gone"/>
+
+
+
+        <ImageButton
+            android:id="@+id/plusw2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textw2"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/minusw2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textw2"
+            android:background="@drawable/down"
+            android:clickable="true"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/textVieww2"
+            android:layout_width="293dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:text="Prepare NOW"
+            app:layout_constraintStart_toStartOf="@+id/plusw2"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textw3"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Evacuate immediately if authorities tell you to do so.
+If trapped, then call 911 and give your location, but be aware that emergency response could be delayed or impossible. Turn on lights to help rescuers find you.
+Listen to EAS, NOAA Weather Radio, or local alerting systems for current emergency information and instructions.
+Use an N95 masks to keep harmful particles out of the air you breathe.
+If you are not ordered to evacuate but smoky conditions exist, stay inside in a safe location or go to a community building where smoke levels are lower."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plusw3"
+            android:visibility="gone"/>
+
+
+        <ImageButton
+            android:id="@+id/plusw3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textw3"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw2" />
+
+
+        <ImageButton
+            android:id="@+id/minusw3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textw3"
+            android:background="@drawable/down"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw2"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textVieww3"
+            android:layout_width="291dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:text="Survive DURING"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw2" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textw4"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Listen to authorities to find out when it is safe to return, and whether water is safe to drink.
+Avoid hot ash, charred trees, smoldering debris, and live embers. The ground may contain heat pockets that can burn you or spark another fire. Consider the danger to pets and livestock.
+Send text messages or use social media to reach out to family and friends. Phone systems are often busy following a disaster. Make calls only in emergencies.
+Wear a NIOSH certified-respirator dust mask and wet debris down to minimize breathing dust particles.
+Document property damage with photographs. Conduct an inventory and contact your insurance company for assistance.
+Wildfires dramatically change landscape and ground conditions, which can lead to increased risk of flooding due to heavy rains, flash flooding and mudflows. Flood risk remains significantly higher until vegetation is restored—up to 5 years after a wildfire. Consider purchasing flood insurance to protect the life you've built and to assure financial protection from future flooding."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plusw4"
+             android:visibility="gone"/>
+
+
+        <ImageButton
+            android:id="@+id/plusw4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textw4"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw3" />
+
+
+        <ImageButton
+            android:id="@+id/minusw4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textw4"
+            android:background="@drawable/down"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw3"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textVieww4"
+            android:layout_width="291dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="40dp"
+            android:text="Be Safe AFTER"
+            app:layout_constraintStart_toStartOf="@+id/plusw4"
+            app:layout_constraintTop_toBottomOf="@+id/description_textw3" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textf2"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Know types of flood risk in your area. Visit FEMA’s Flood Map Service Center for information.
+
+Sign up for your community’s warning system. The Emergency Alert System (EAS) and National Oceanic and Atmospheric Administration (NOAA) Weather Radio also provide emergency alerts.
+
+If flash flooding is a risk in your location, then monitor potential signs, such as heavy rain.
+
+Learn and practice evacuation routes, shelter plans, and flash flood response.
+
+Gather supplies in case you have to leave immediately, or if services are cut off. Keep in mind each person’s specific needs, including medication. Don’t forget the needs of pets. Obtain extra batteries and charging devices for phones and other critical equipment.
+
+Purchase or renew a flood insurance policy. It typically takes up to 30 days for a policy to go into effect and can protect the life you've built. Homeowner’s policies do not cover flooding. Get flood coverage under the National Flood Insurance Program (NFIP)
+
+Keep important documents in a waterproof container. Create password-protected digital copies.
+
+Protect your property. Move valuables to higher levels. Declutter drains and gutters. Install check valves. Consider a sump pump with a battery."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textViewf2"
+            android:visibility="gone"/>
+
+
+
+        <ImageButton
+            android:id="@+id/plusf2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textf2"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <ImageButton
+            android:id="@+id/minusf2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textf2"
+            android:background="@drawable/down"
+            android:clickable="true"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/textViewf2"
+            android:layout_width="293dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:text="Prepare NOW"
+            app:layout_constraintStart_toStartOf="@+id/plusf2"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textf3"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Depending on where you are, and the impact and the warning time of flooding, go to the safe location that you previously identified.
+If told to evacuate, do so immediately. Never drive around barricades. Local responders use them to safely direct traffic out of flooded areas.
+Listen to EAS, NOAA Weather Radio, or local alerting systems for current emergency information and instructions.
+Do not walk, swim, or drive through flood waters. Turn Around. Don’t Drown!
+Stay off bridges over fast-moving water. Fast-moving water can wash bridges away without warning.
+If your vehicle is trapped in rapidly moving water, then stay inside. If water is rising inside the vehicle, then seek refuge on the roof.
+If trapped in a building, then go to its highest level. Do not climb into a closed attic. You may become trapped by rising floodwater. Go on the roof only if necessary. Once there, signal for help."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plusf3"
+            android:visibility="gone"/>
+
+
+        <ImageButton
+            android:id="@+id/plusf3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textf3"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf2" />
+
+
+        <ImageButton
+            android:id="@+id/minusf3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textf3"
+            android:background="@drawable/down"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf2"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textViewf3"
+            android:layout_width="291dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="40dp"
+            android:text="Survive DURING"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf2" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:gravity="right">
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/description_textf4"
+            android:layout_width="414dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="40dp"
+            android:maxLines="0"
+            android:padding="15dp"
+            android:text="Listen to authorities for information and instructions. Return home only when authorities say it is safe.
+Avoid driving, except in emergencies.
+Snakes and other animals may be in your house. Wear heavy gloves and boots during clean up.
+Be aware of the risk of electrocution. Do not touch electrical equipment if it is wet or if you are standing in water. If it is safe to do so, turn off the electricity to prevent electric shock.
+Avoid wading in floodwater, which can contain dangerous debris and be contaminated. Underground or downed power lines can also electrically charge the water.
+Use a generator or other gasoline-powered machinery ONLY outdoors and away from windows."
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plusf4"
+            android:visibility="gone"/>
+
+
+        <ImageButton
+            android:id="@+id/plusf4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/description_textf4"
+            android:background="@drawable/right"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf3" />
+
+
+        <ImageButton
+            android:id="@+id/minusf4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/description_textf4"
+            android:background="@drawable/down"
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf3"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textViewf4"
+            android:layout_width="291dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="40dp"
+            android:text="Be Safe AFTER"
+            app:layout_constraintStart_toStartOf="@+id/plusf4"
+            app:layout_constraintTop_toBottomOf="@+id/description_textf3" />
+
+</android.support.constraint.ConstraintLayout>
+</ScrollView>
