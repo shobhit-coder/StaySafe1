@@ -33,13 +33,14 @@ public class LoginActivity extends AppCompatActivity {
     protected LocationManager locationManager;
     protected Button retrieveLocationButton;
 
+    MyLocationListener locationListener;
     coord coordinates;
     int requestCode = 1;
     String num1="",name1="",bloodgroup="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        locationListener = new MyLocationListener();
 //        retrieveLocationButton = (Button) findViewById(R.id.retrieve_location_button);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -63,9 +64,10 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(this, "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
         }
         while(ContextCompat.checkSelfPermission(LoginActivity.this, permission) != PackageManager.PERMISSION_GRANTED) ;
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
+//        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
 
                 coordinates=showCurrentLocation();
+                Log.v("cooor",""+coordinates.lat+coordinates.lon);
 
 
         setContentView(R.layout.activity_login);
@@ -127,41 +129,45 @@ public class LoginActivity extends AppCompatActivity {
 
         String permission=android.Manifest.permission.ACCESS_FINE_LOCATION;
         if (ContextCompat.checkSelfPermission(LoginActivity.this, permission) != PackageManager.PERMISSION_GRANTED) {
-
+            Log.v("outerloop1","outerloop1");
             // Should we show an explanation?
             if (ActivityCompat.shouldShowRequestPermissionRationale(LoginActivity.this, permission)) {
-
+                Log.v("innerloop1","innerloop1");
                 //This is called if user has denied the permission before
                 //In this case I am just asking the permission again
                 ActivityCompat.requestPermissions(LoginActivity.this, new String[]{permission}, requestCode);
 
             } else {
-
+                Log.v("innerloopelse1","innerloopelse1");
                 ActivityCompat.requestPermissions(LoginActivity.this, new String[]{permission}, requestCode);
             }
         } else {
+            Log.v("outerloopelse1","outerloopelse1");
             Toast.makeText(this, "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
         }
 
 
-            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (location != null) {
+//            Location location =
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+//            if (location != null) {
+//
+//                String message = String.format(
+//
+//                        "Current Location \n Longitude: %1$s \n Latitude: %2$s",
+//
+//                        location.getLongitude(), location.getLatitude()
+//
+//                );
+//                coord coord1=new coord(location.getLongitude(),location.getLatitude());
+//                return coord1;
+//
+////                Toast.makeText(LoginActivity.this, message,
+////
+////                        Toast.LENGTH_LONG).show();
+//
+//            }
 
-                String message = String.format(
-
-                        "Current Location \n Longitude: %1$s \n Latitude: %2$s",
-
-                        location.getLongitude(), location.getLatitude()
-
-                );
-
-                Toast.makeText(LoginActivity.this, message,
-
-                        Toast.LENGTH_LONG).show();
-
-            }
-
-            return new coord(location.getLongitude(),location.getLatitude());
+            return new coord(1,1);
 
 
 
@@ -181,6 +187,8 @@ public class LoginActivity extends AppCompatActivity {
             );
 
             Toast.makeText(LoginActivity.this, message, Toast.LENGTH_LONG).show();
+
+            Log.v("loooc",message);
 
         }
 

@@ -31,6 +31,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 public class MapFragment extends Fragment implements OnMapReadyCallback {
 
     GoogleMap map;
+    String message="";
+
     public MapFragment() {
         // Required empty public constructor
     }
@@ -43,8 +45,17 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         View v = inflater.inflate(R.layout.fragment_map,container,false);
         Intent i=getActivity().getIntent();
         final String loginPhoneNumber = i.getStringExtra("phno");
-        Log.v("valueoffinal",loginPhoneNumber);
+        final String bloodgroup = i.getStringExtra("bloodgroup");
+        final String nam = i.getStringExtra("name");
+        final String lat1 = i.getStringExtra("lat");
+        final String lon1 = i.getStringExtra("lon");
+        Log.v("valueoffinal",loginPhoneNumber+bloodgroup+nam+lat1+lon1);
         Button todo = (Button)v.findViewById(R.id.todo_b);
+
+        message=getActivity().getIntent().getStringExtra("message");
+
+
+
         todo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -140,6 +151,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap){
         map=googleMap;
+        if(message!=null){
+            Log.v("fcmdata",message);
+        }
 
         LatLng point=new LatLng(12.925471,77.501349);
         MarkerOptions markerOptions = new MarkerOptions();
