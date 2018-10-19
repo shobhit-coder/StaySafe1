@@ -114,8 +114,8 @@ public class LoginActivity extends AppCompatActivity {
                 sp.edit().putString("bloodgroup",bg.getText().toString()).apply();
                 sp.edit().putString("name",name.getText().toString()).apply();
                 sp.edit().putString("number",num.getText().toString()).apply();
-                sp.edit().putFloat("lat",(float)coordinates.lat).apply();
-                sp.edit().putFloat("lon",(float)coordinates.lon).apply();
+                sp.edit().putString("lat",Double.toString(coordinates.lat)).apply();
+                sp.edit().putString("lon",Double.toString(coordinates.lon)).apply();
 //                sp.edit().commit();
             }
         });
@@ -221,14 +221,14 @@ public class LoginActivity extends AppCompatActivity {
     public void goToMainActivity(){
         Intent i = new Intent(this,MainActivity.class);
         String s="",bg="",nam="";
-        float lat1,lon1;
+        String lat1="",lon1="";
         Log.v("valueofnum1",num1);
         if(num1==""){
             s= sp.getString("number","DEFAULT");
-            bg=sp.getString("number","DEFAULT");;
-            nam=sp.getString("number","DEFAULT");;
-            lat1= sp.getFloat("number","DEFAULT");
-            lon1=sp.getFloat("number","DEFAULT");
+            bg=sp.getString("bloodgroup","DEFAULT");;
+            nam=sp.getString("name","DEFAULT");;
+            lat1= sp.getString("lat","DEFAULT");
+            lon1=sp.getString("lon","DEFAULT");
 //            sp.edit().putString("bloodgroup",bg.getText().toString()).apply();
 //            sp.edit().putString("name",name.getText().toString()).apply();
 //            sp.edit().putString("number",num.getText().toString()).apply();
@@ -239,8 +239,8 @@ public class LoginActivity extends AppCompatActivity {
             s=num1;
             bg=bloodgroup;
             nam=name1;
-            lat1=(float) coordinates.lat;
-            lon1=(float) coordinates.lon;
+            lat1=Double.toString(coordinates.lat);
+            lon1=Double.toString( coordinates.lon);
         }
         Log.v("numberis",s);
         i.putExtra("phno",s);
