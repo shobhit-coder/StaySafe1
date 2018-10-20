@@ -3,99 +3,84 @@ package com.example.android.staysafe1;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ImageButton;
-import android.widget.TextView;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+import android.widget.Toast;
 
-public class Main2Activity_landslide extends AppCompatActivity {
-    TextView descText2, descText3,descText4;
-    ImageButton plus2, minus2,plus3, minus3,plus4, minus4;
-    @Override
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+public class Main2Activity_landslide extends AppCompatActivity{
+
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2_landslide);
-        descText2 = (TextView) findViewById(R.id.description_textl2);
-        descText3 = (TextView) findViewById(R.id.description_textl3);
-        descText4 = (TextView) findViewById(R.id.description_textl4);
+
+        expListView = (ExpandableListView) findViewById(R.id.lland);
+
+        // preparing list data
+        prepareListData();
+
+        listAdapter = new ExpandableListAdapter1(this, listDataHeader, listDataChild);
+
+        // setting list adapter
+        expListView.setAdapter(listAdapter);
 
 
-        minus2 = (ImageButton) findViewById(R.id.minusl2);
-        plus2 = (ImageButton) findViewById(R.id.plusl2);
-
-        minus3 = (ImageButton) findViewById(R.id.minusl3);
-        plus3 = (ImageButton) findViewById(R.id.plusl3);
-
-        minus4 = (ImageButton) findViewById(R.id.minusl4);
-        plus4 = (ImageButton) findViewById(R.id.plusl4);
-
-        minus2.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                minus2.setVisibility(v.GONE);
-                plus2.setVisibility(v.VISIBLE);
-                descText2.setVisibility(View.GONE);
-
-            }
-        });
-        plus2.setOnClickListener(new View.OnClickListener() {
+        // Listview Group click listener
+        expListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
 
             @Override
-            public void onClick(View v) {
-
-                plus2.setVisibility(v.GONE);
-                minus2.setVisibility(v.VISIBLE);
-                descText2.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-        minus3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                minus3.setVisibility(v.GONE);
-                plus3.setVisibility(v.VISIBLE);
-                descText3.setVisibility(View.GONE);
-
-            }
-        });
-        plus3.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                plus3.setVisibility(v.GONE);
-                minus3.setVisibility(v.VISIBLE);
-                descText3.setVisibility(View.VISIBLE);
-
-            }
-        });
-
-        minus4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                minus4.setVisibility(v.GONE);
-                plus4.setVisibility(v.VISIBLE);
-                descText4.setVisibility(View.GONE);
-
-            }
-        });
-        plus4.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-
-                plus4.setVisibility(v.GONE);
-                minus4.setVisibility(v.VISIBLE);
-                descText4.setVisibility(View.VISIBLE);
-
+            public boolean onGroupClick(ExpandableListView parent, View v,
+                                        int groupPosition, long id) {
+                // Toast.makeText(getApplicationContext(),
+                // "Group Clicked " + listDataHeader.get(groupPosition),
+                // Toast.LENGTH_SHORT).show();
+                return false;
             }
         });
 
     }
-}
 
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("Prepare NOW");
+        listDataHeader.add("Survive DURING");
+        listDataHeader.add("Be Safe AFTER");
+
+        // Adding child data
+
+        List<String> nowShowing = new ArrayList<String>();
+        nowShowing.add("Build an emergency kit.");
+        nowShowing.add("Make a family communications plan.");
+
+        List<String> top250 = new ArrayList<String>();
+        top250.add("Stay alert and awake. Many people die from landslides when they are sleeping.");
+        top250.add("Listen for unusual sounds like trees cracking or boulders knocking together. If you hear something, tell an adult immediately!");
+        top250.add("Move away from the path of a landslide or debris flow as fast as you can.");
+        top250.add("Avoid river valleys and low-lying areas.");
+        top250.add("If you can’t escape, curl into a tight ball and cover your head with your hands and arms.");
+
+
+        List<String> comingSoon = new ArrayList<String>();
+        comingSoon.add("Stay away from the slide area. There may be additional slides.");
+        comingSoon.add("If you see dangling or loose wires, stay away and tell an adult.\n");
+        comingSoon.add("Listen to safety officials about where it’s safe to go.\n");
+        comingSoon.add("Text, don’t talk. Unless there’s a life-threatening  situation, send a text so that you don’t tie up phone lines needed by emergency workers. Plus, texting may work even if cell service is down.\n");
+
+        listDataChild.put(listDataHeader.get(0), nowShowing ); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), top250);
+        listDataChild.put(listDataHeader.get(2), comingSoon);
+    }
+
+}

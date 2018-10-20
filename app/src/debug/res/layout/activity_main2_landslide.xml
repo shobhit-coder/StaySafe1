@@ -1,197 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ScrollView01"
+<!--<ScrollView-->
+<!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--xmlns:tools="http://schemas.android.com/tools"-->
+<!--android:id="@+id/ScrollView01"-->
+<!--android:layout_width="fill_parent"-->
+<!--android:layout_height="fill_parent"-->
+<!--android:background="#606060">-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="fill_parent"
+    android:background="#606060">
+    <ImageView
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/landslide"/>
+    <ExpandableListView
+        android:id="@+id/lland"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:gravity="right">
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/description_textl2"
-            android:layout_width="414dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="40dp"
-            android:maxLines="0"
-            android:padding="15dp"
-            android:text="Find out if you live in an area where landslides could potentially happen. Landslides may also be referred to as mudslides, debris flows, mudflows or debris avalanches.
-
-Download the Canadian Red Cross Be Ready App for instant access to information needed to prepare for different emergency situations.
-Talk to everyone in your household about what to do if a landslide occurs.
-Become familiar with the land around where you live and work so that you understand your risk in different situations.
-Avoid actions that could increase instability. For example, don’t undercut a steep bank; don’t build near the top or base of steep slopes; don’t place fill on steep slopes; and don’t drain swimming pools or otherwise increase water flow down steep slopes.
-Learn how to recognize the signs of potential imminent landslides. This could include slope cracks, slope bulges, an unusual seepage of water on the slope, sudden changes in stream flow and small rocks falling.
-Watch the patterns of storm water drainage on slopes near your home, especially where runoff water converges.
-Know who to notify if you see these signs. Have municipal emergency contact numbers on hand."
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewl2"
-            android:visibility="gone"/>
-
-
-
-        <ImageButton
-            android:id="@+id/plusl2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/description_textl2"
-            android:background="@drawable/right"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-
-        <ImageButton
-            android:id="@+id/minusl2"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/description_textl2"
-            android:background="@drawable/down"
-            android:clickable="true"
-            android:visibility="gone" />
-
-
-        <TextView
-            android:id="@+id/textViewl2"
-            android:layout_width="293dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="40dp"
-            android:text="Prepare NOW"
-            app:layout_constraintStart_toStartOf="@+id/plusl2"
-            app:layout_constraintTop_toTopOf="parent" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:gravity="right">
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/description_textl3"
-            android:layout_width="414dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="40dp"
-            android:maxLines="0"
-            android:padding="15dp"
-            android:text="If you suspect imminent danger evacuate immediately. Inform affected neighbours if you can, and contact your public works, fire or police department.
-Listen for unusual sounds that might indicate moving debris, such as trees cracking or boulders knocking together. \n If indoors:
-Find cover in the part of the building that is the furthest from the approaching landslide.
-Take shelter under a strong table or a bench.
-Hold on firmly and stay put until all movement has stopped.\n If outdoors:
-Move quickly away from its likely path, keeping clear of embankments, trees, power lines and poles.
-Stay away from the landslide area. The slope may experience additional failures for hours to days afterwards.\n If you are in your car:
-Watch for collapsed pavement, mud, fallen rocks and other indications of possible debris flow. "
-            android:textColor="#000000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/plusl3"
-            android:visibility="gone"/>
-
-
-        <ImageButton
-            android:id="@+id/plusl3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/description_textl3"
-            android:background="@drawable/right"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl2" />
-
-
-        <ImageButton
-            android:id="@+id/minusl3"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/description_textl3"
-            android:background="@drawable/down"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl2"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textViewl3"
-            android:layout_width="291dp"
-            android:layout_height="40dp"
-            android:layout_marginStart="40dp"
-            android:text="Survive DURING"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl2" />
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:gravity="right">
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/description_textl4"
-            android:layout_width="414dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="40dp"
-            android:maxLines="0"
-            android:padding="15dp"
-            android:text="Continue to take precautions and listen to and follow directions from local authorities.
-Listen to the radio for further instructions from officials.
-Stay away from the slide area until local officials say it is safe to enter.
-Look for and report broken utility lines to appropriate authorities. Reporting potential hazards will get the utilities turned off as quickly as possible, preventing further hazard and injury.
-Check your home’s foundation, chimney and surrounding land for damage.
-Replant damaged ground as soon as possible because erosion caused by loss of ground cover can lead to flash flooding.
-If you suspect your home is unsafe, do not enter. Rely on the professionals to clear your home for re-entry, if you are unsure. "
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/plusl4"
-            android:visibility="gone"/>
-
-
-        <ImageButton
-            android:id="@+id/plusl4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/description_textl4"
-            android:background="@drawable/right"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl3" />
-
-
-        <ImageButton
-            android:id="@+id/minusl4"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentRight="true"
-            android:layout_below="@+id/description_textl4"
-            android:background="@drawable/down"
-            android:clickable="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl3"
-            android:visibility="gone" />
-
-        <TextView
-            android:id="@+id/textViewl4"
-            android:layout_width="291dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="40dp"
-            android:text="Be Safe AFTER"
-            app:layout_constraintStart_toStartOf="@+id/plusl4"
-            app:layout_constraintTop_toBottomOf="@+id/description_textl3" />
-
-    </android.support.constraint.ConstraintLayout>
-</ScrollView>
+        android:layout_width="match_parent"/>
+</LinearLayout>

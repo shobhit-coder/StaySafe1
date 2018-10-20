@@ -49,6 +49,7 @@ import static com.example.android.staysafe1.Constants.CHANNEL_ID;
  */
 public class MapFragment extends Fragment implements OnMapReadyCallback {
      String lon1="0";
+     Button alert_b;
      String lat1="0";
      coord coordinates;
     int requestCode = 1;
@@ -155,7 +156,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 } else {
                     Log.d("smstrying", "smstrying");
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "+919220592205"));
-                    intent.putExtra("sms_body", "JPE93 -1,-1,n");
+                    intent.putExtra("sms_body", "JPE93 "+lat1+","+lon1+",n");
                     startActivity(intent);
                 }
             }
@@ -178,7 +179,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 else {
                     Log.d("smstrying", "smstrying");
                     Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + "+919220592205"));
-                    intent.putExtra("sms_body", "JPE93 -1,-1,y");
+                    intent.putExtra("sms_body", "JPE93 "+lat1+","+lon1+",y");
                     startActivity(intent);
                 }
 
@@ -209,6 +210,16 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         super.onViewCreated(view, savedInstanceState);
         SupportMapFragment supportMapFragment=(SupportMapFragment)getChildFragmentManager().findFragmentById(R.id.map1);
         supportMapFragment.getMapAsync(this);
+
+        alert_b=(Button)view.findViewById(R.id.alerts_b);
+        alert_b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),AlertActivity.class);
+
+                startActivity(i);
+            }
+        });
 
     }
 

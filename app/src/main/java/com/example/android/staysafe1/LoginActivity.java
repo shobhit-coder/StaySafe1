@@ -13,6 +13,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
@@ -22,6 +23,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 public class LoginActivity extends AppCompatActivity {
     Button login;
@@ -43,7 +48,18 @@ public class LoginActivity extends AppCompatActivity {
         locationListener = new MyLocationListener();
 //        retrieveLocationButton = (Button) findViewById(R.id.retrieve_location_button);
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
+        FirebaseMessaging.getInstance().subscribeToTopic("news")
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        String msg = "Subbed!!";
+                        if (!task.isSuccessful()) {
+                            msg = "failed";//getString(R.string.msg_subscribe_failed);
+                        }
+                        Log.d("subbedsubbed", msg);
+//                        Toast.makeText(LoginActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    }
+                });
         String permission=android.Manifest.permission.ACCESS_FINE_LOCATION;
         if (ContextCompat.checkSelfPermission(LoginActivity.this, permission) != PackageManager.PERMISSION_GRANTED) {
             Log.v("outerloop","outerloop");
@@ -205,6 +221,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this, "Provider status changed",
 
                     Toast.LENGTH_LONG).show();
+
 
         }
 
