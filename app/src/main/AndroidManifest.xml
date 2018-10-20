@@ -62,13 +62,10 @@
         <activity android:name=".Main2Activity_hurricane" />
         <activity android:name=".Main2Activity_flood" />
         <activity android:name=".Main2Activity_wildfire" />
-
         <activity android:name=".Main2Activity_tornado" />
-        <activity android:name=".Main2Activity_landslide"/>
-        <activity android:name=".Main2Activity_earthquake"></activity>
-
-
-
+        <activity android:name=".Main2Activity_landslide" />
+        <activity android:name=".Main2Activity_earthquake" />
+        <activity android:name=".AlertActivity"></activity>
     </application>
 
 </manifest>

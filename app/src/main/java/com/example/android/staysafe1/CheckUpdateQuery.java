@@ -70,7 +70,7 @@ public class CheckUpdateQuery extends AsyncTask<String,String,String>
                 {
                     // Change below query according to your own database.
                     String query = "update location2  set lat="+lat+",lon="+lon+",flag=\'"+flag+"\' where id = \'"+phonenumber+"\';";
-                    Log.v("iamhere","iamhere");
+                    Log.v("iamhere","iamhere"+lat+lon);
                     Statement stmt = con.createStatement();Log.v("iamhere2","iamhere2");
 //                    ResultSet rs =
                     stmt.execute(query);

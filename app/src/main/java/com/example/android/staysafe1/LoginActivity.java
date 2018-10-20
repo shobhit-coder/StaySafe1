@@ -65,9 +65,14 @@ public class LoginActivity extends AppCompatActivity {
         }
         while(ContextCompat.checkSelfPermission(LoginActivity.this, permission) != PackageManager.PERMISSION_GRANTED) ;
 //        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, MINIMUM_TIME_BETWEEN_UPDATES, MINIMUM_DISTANCE_CHANGE_FOR_UPDATES, new MyLocationListener());
-
+        Location lastKnownLocationGPS=null;
                 coordinates=showCurrentLocation();
-                Log.v("cooor",""+coordinates.lat+coordinates.lon);
+                if (locationManager!=null)
+                    lastKnownLocationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                if(lastKnownLocationGPS!=null){
+                    coordinates=new coord(lastKnownLocationGPS.getLatitude(),lastKnownLocationGPS.getLongitude());
+                }
+        Log.v("cooor",""+coordinates.lat+coordinates.lon);
 
 
         setContentView(R.layout.activity_login);
@@ -149,6 +154,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //            Location location =
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+
 //            if (location != null) {
 //
 //                String message = String.format(
