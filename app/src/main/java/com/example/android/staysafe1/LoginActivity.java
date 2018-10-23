@@ -170,6 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
 //            Location location =
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,locationListener);
 
 //            if (location != null) {
 //

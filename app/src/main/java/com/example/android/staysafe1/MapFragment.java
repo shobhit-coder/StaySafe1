@@ -250,7 +250,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 for(int i=0;i<ja.length();i++){
                     JSONObject temp =(JSONObject) ja.get(i);
                     double tlat=Double.parseDouble(lat1),tlon=Double.parseDouble(lon1);
+
                     double al_lat=(double)temp.get("lat"),al_lon=(double)temp.get("lon");
+                    int tsunami=(int)temp.get("tsunami");
                     Log.v("madvalues"," "+tlat+" "+tlon+" "+al_lat+" "+al_lon);
                     if(Math.pow(tlat-al_lat,2)+ Math.pow(tlon-al_lon,2)<=5){
                         flag=1;
@@ -258,8 +260,13 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                         nearbypos.add(new LatLng(al_lat,al_lon));
 
                     }
+                    if(tsunami==1){
+                        map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake"));
+                    }else{
+                        map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake").snippet("Tsunami Warning"));
+                    }
 
-                    map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake"));
+//                    map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake").snippet("Tsunami Warning"));
                 }
                 if(flag==1){
 //                    Intent intent=new Intent(getContext(),Alert.class);
@@ -391,6 +398,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
 //            Location location =
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,locationListener);
+//        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,0,0,locationListener);
 
 //            if (location != null) {
 //
