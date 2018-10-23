@@ -30,7 +30,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         if (remoteMessage.getData().size() > 0) {
             Log.d("datapayload", "Message data payload: " + remoteMessage.getData());
             NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setSmallIcon(R.drawable.small)
+                    .setSmallIcon(R.drawable.unnamed)
                     .setContentTitle("Alerts Received")
                     .setContentText("Tap here to look at the updated map.")
                     .setStyle(new NotificationCompat.BigTextStyle()

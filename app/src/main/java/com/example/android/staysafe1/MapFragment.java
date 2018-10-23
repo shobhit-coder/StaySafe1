@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -35,6 +36,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
+import com.google.android.gms.maps.model.PolylineOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -48,7 +51,7 @@ import static com.example.android.staysafe1.Constants.CHANNEL_ID;
  * A simple {@link Fragment} subclass.
  */
 public class MapFragment extends Fragment implements OnMapReadyCallback {
-     String lon1="0";
+     String lon1="0",nam="",bloodgroup="";
      Button alert_b;
      String lat1="0";
      coord coordinates;
@@ -110,8 +113,8 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 
         Intent i=getActivity().getIntent();
         final String loginPhoneNumber = i.getStringExtra("phno");
-        final String bloodgroup = i.getStringExtra("bloodgroup");
-        final String nam = i.getStringExtra("name");
+        bloodgroup = i.getStringExtra("bloodgroup");
+        nam = i.getStringExtra("name");
         lat1 = Double.toString(coordinates.lat);//i.getStringExtra("lat");
         lon1 = Double.toString(coordinates.lon);//i.getStringExtra("lon");
         Log.v("valueoffinal",loginPhoneNumber+bloodgroup+nam+lat1+lon1);
@@ -229,7 +232,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
         nearbypos=new ArrayList<>();
         map=googleMap;
         if(message!=null){
-            Log.v("fcmdata1",message);
+            Log.v("fcmdata11",message);
             String mess="";//int ctr=0;
             for( int ctr=0;ctr<message.length()-1;ctr++){
                 if(ctr>5) {
@@ -241,12 +244,50 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
 //                ctr++;
             }
 //            mess.replace("\'","\"");
-            Log.v("fcmdata",mess);
+            Log.v("fcmdata22",mess);
             try {
                 JSONObject jsonObj = new JSONObject(mess);
                 Log.v("fromjson",jsonObj.get("eqlocation").toString());
                 JSONArray ja =(JSONArray) jsonObj.get("eqlocation");
                 int flag=0;
+                JSONArray cycJA = (JSONArray) jsonObj.get("cydata");
+
+                for(int zz=0;zz<cycJA.length();zz++){
+                    JSONObject cycLocation = (JSONObject) cycJA.get(zz);
+
+                    JSONObject cyLocCoor = (JSONObject) cycLocation.get("cylocation");
+                    LatLng cycStart = new LatLng((double)cyLocCoor.get("lat"),(double)cyLocCoor.get("lon"));
+                    map.addMarker(new MarkerOptions().position(cycStart).title("Cyclone Location"));
+
+
+
+//                    JSONObject cycTrack = (JSONObject) cycJA.get(zz);
+                    JSONArray cyTrackArray = (JSONArray) cycLocation.get("cytrack");
+                    ArrayList<LatLng> cyTrackPoints = new ArrayList<LatLng>();
+                    for(int i=0;i<cyTrackArray.length();i++){
+                        JSONObject temp=(JSONObject) cyTrackArray.get(i);
+                        LatLng coord = new LatLng((double)temp.get("lat"),(double)temp.get("lon"));
+                        cyTrackPoints.add(coord);
+                    }
+
+                    Polyline cyTrackLine = map.addPolyline(new PolylineOptions().addAll(cyTrackPoints).width(5).color(Color.RED));
+
+
+//                    JSONObject cycForecast = (JSONObject) cycJA.get(2);
+                    JSONArray cycForecastArray = (JSONArray) cycLocation.get("cyforecast");
+                    ArrayList<LatLng> cyForecastPoints = new ArrayList<LatLng>();
+                    for(int i=0;i<cycForecastArray.length();i++){
+                        JSONObject temp = (JSONObject)cycForecastArray.get(i);
+                        LatLng coord = new LatLng((double)temp.get("lat"),(double)temp.get("lon"));
+                        cyForecastPoints.add(coord);
+                    }
+
+                    Polyline cyForecastLine = map.addPolyline(new PolylineOptions().addAll(cyForecastPoints).width(5).color(Color.BLACK));
+
+
+                }
+
+
                 for(int i=0;i<ja.length();i++){
                     JSONObject temp =(JSONObject) ja.get(i);
                     double tlat=Double.parseDouble(lat1),tlon=Double.parseDouble(lon1);
@@ -260,7 +301,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                         nearbypos.add(new LatLng(al_lat,al_lon));
 
                     }
-                    if(tsunami==1){
+                    if(tsunami==0){
                         map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake"));
                     }else{
                         map.addMarker(new MarkerOptions().position(new LatLng((double)temp.get("lat"),(double)temp.get("lon"))).title("Earthquake").snippet("Tsunami Warning"));
@@ -280,8 +321,9 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                             .setContentTitle("Alert!!")
                             .setContentText("Nearby disaster.")
                             .setStyle(new NotificationCompat.BigTextStyle()
-                                    .bigText("Tap here to look at the updated map."))
+                                    .bigText("Tap here to look at the updated map.\nName:"+nam+":\nBlood Group:"+bloodgroup))
                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+//                            .setOngoing(true);                    //PERSISTENT NOTIFICATIONS
 
                     notificationManager.notify(1, mBuilder.build());
 //                            .setContentIntent(pendingIntent);
