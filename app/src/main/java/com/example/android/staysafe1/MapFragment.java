@@ -145,6 +145,18 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 startActivity(i);
             }
         });
+
+        FloatingActionButton fab3 = (FloatingActionButton)v.findViewById(R.id.floatingActionButton_face);
+        fab3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getActivity(),FaceActivity.class);
+                i.putExtra("phoneno1",loginPhoneNumber);
+
+                startActivity(i);
+
+            }
+        });
         FloatingActionButton fab2 = (FloatingActionButton)v.findViewById(R.id.floatingActionButton_unsafe);
 //        Button button1 = (Button) v.findViewById(R.id.send_b_unsafe);
         fab2.setOnClickListener(new View.OnClickListener()
@@ -434,7 +446,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             }
         } else {
             Log.v("outerloopelse1","outerloopelse1");
-            Toast.makeText(getContext(), "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "" + permission + " is already granted.", Toast.LENGTH_SHORT).show();
         }
 
 
